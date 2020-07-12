@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>R_U_T HTML</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Relative URL Templates</h1>
+      </div>
+
+      <a href="{% url 'app:other'  %}">Other Page</a><br>
+      <a href="{% url 'admin:index' %}">Admin Page</a><br>
+      <a href="{% url 'index' %}">Home Page</a>
+    </div>
+  </body>
+</html>
