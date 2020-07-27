@@ -33,10 +33,10 @@
 <div class="container">
 
   {% for comment in post.comments.all %}
-    {% if user.is_authenticated or comment.approved_comment %}
+    {% if user.is_authenticated or comment.approved_comments %}
 
         {{ comment.created_date }}
-          {% if not comment.approved_comment %}
+          {% if not comment.approved_comments %}
 
           <a class="btn btn-primary" href="{% url 'comment_remove' pk=comment.pk %}">
             <span class="fa fa-remove"></span>
