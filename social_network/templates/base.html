@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Social Network</title>
+
+    <!--Static link Bootstrap 4.5.0 and font awesome-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script defer src="{% static 'fontawesome/js/all.min.js' %}"></script>
+
+    <!--Static link Google fonts Russo_One-->
+    <link rel="font" name='RussoOne' href="{% static 'google_fonts/Russo_One/RussoOne-Regular.ttf' %}">
+
+    <!--Static Link to custom css-->
+    <link rel="stylesheet" href="{% static 'social_network/css/master.css' %}">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg bg-dark mynav" role="navigation" id="navbar">
+      <div class="container">
+        <div class="navbar-nav align-items-center">
+          <a class="navbar-brand mynav" href="{% url 'home' %}">Home</a>
+        </div>
+        <div class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+
+            <a class="nav-item nav-link" href="#" class="btn btn-simple">Post</a>
+            <a class="nav-item nav-link" href="#" class="btn btn-simple">Communities</a>
+            <a class="nav-item nav-link" href="#" class="btn btn-simple">Create Community</a>
+            <a class="nav-item nav-link" href="{% url 'accounts:logout' %}" class="btn btn-simple">Log out</a>
+          {% else %}
+            <a class="nav-item nav-link" href="#"class="btn btn-simple">Communities</a>
+            <a class="nav-item nav-link" href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a>
+            <a class="nav-item nav-link" href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mycontent">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+    <!--Static Link to jQuery-->
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
