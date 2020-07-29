@@ -16,18 +16,18 @@
   </div>
   {% if user.is_authenticated %}
     <a href="{% url 'communities:create' %}" class="btn btn-md btn-warning" role="button">
-      <span class="fa fa-plus"></span> Create a new Community    </a>
+      <span class="fa fa-plus"></span> Create a new Community </a>
   {% endif %}
 </div>
 {% endblock %}
 
-{% community_content %}
+{% block community_content %}
 <div class="col-mid-6">
   <div class="list-group">
     {% for community in object_list %}
       <a href="{% url 'communities:single' slug=community.slug %}"
       class="list-group-item list-group-item-action flex-column align-items-start">
-        <h3 class="mb-1">{{community.name}}</h3>
+        <h3 class="mb-1">{{ community.name }}</h3>
         <p class="mb-1">{{ community.description_html|safe }}</p>
         <div class="d-flex w-40 justify-content-between">
   				<small class="text-muted"><span class="badge badge-secondary">

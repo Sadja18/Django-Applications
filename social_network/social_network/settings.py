@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'fontawesome',
     'accounts',
+    'communities',
+    'posts',
 ]
 
 MIDDLEWARE = [

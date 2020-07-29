@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 import misaka
 
-from django.utils import reverse
+from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django import template
 
@@ -31,7 +31,7 @@ class Community(models.Model):
         super().save(*args,**kwargs)
 
     def get_absolute_url(self):
-        return reverse('communities:single', **kwargs={'slug':self.slug})
+        return reverse('communities:single', kwargs={'slug':self.slug})
 
     class Meta():
         ordering = ['name']
