@@ -1,0 +1,1 @@
+Don't create accounts with same username as the ones already created. It will cause an error.
