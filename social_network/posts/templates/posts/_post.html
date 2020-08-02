@@ -6,7 +6,6 @@
   </h3>
 
 	<div class="media-body">
-		<strong>{{ post.user.username }}</strong>
 		<h5>{{ post.message_html|safe }}
 			<time class="time">
         <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">
