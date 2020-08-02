@@ -65,16 +65,3 @@ class LeaveCommunity(LoginRequiredMixin, generic.RedirectView):
             membership.delete()
             messages.success(self.request,"You have successfully left this group.")
         return super().get(request, *args, **kwargs)
-
-class DeleteCommunity(LoginRequiredMixin,SelectRelatedMixin,generic.DeleteView):
-    model = Community
-    select_related = ("user", "community")
-    success_url = reverse_lazy("community:all")
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.filter(user_id=self.request.user.id)
-
-    def delete(self, *args, **kwargs):
-        messages.success(self.request, "Community Deleted")
-        return super().delete(*args, **kwargs)
