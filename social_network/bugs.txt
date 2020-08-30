@@ -1,0 +1,5 @@
+The admin interface was behaving erratically in the hosted version.
+Turns out that I needed to add Static_Root to the settings.py file
+After that, I needed to collect and map the static files to their urls and the site is working great.
+
+Also, I didn't register the Post model to admin. I did it in this version.
